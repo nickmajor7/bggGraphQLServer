@@ -1,0 +1,37 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Collection {
+  id: ID!
+  user: User!
+  game: [Game!]!
+}
+
+type Game {
+  id: ID!
+  name: String!
+  yearpublished: String!
+  playingtime: Int!
+  minplayers: Int!
+  maxplayers: Int!
+  score: Float!
+}
+
+type User {
+  id: ID!
+  name: String!
+}
+
+type Query {
+  collection(name: String!): Collection!
+}
+
+input Login {
+  username: String!
+  password: String!
+}
+
+type Mutation {
+  login(input: Login!): String!
+}
